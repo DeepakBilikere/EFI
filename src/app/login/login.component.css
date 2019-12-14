@@ -1,0 +1,65 @@
+.try-now {
+    border-radius: 20px;
+    background-color: #0062cc !important;
+    padding: 5px 25px 5px 25px;
+    font-size: small;
+}
+
+.nav-bar-font {
+    color: black;
+    font-family: sans-serif;
+    font-size: small;
+    font-weight: 540;
+}
+
+.card-change {
+    width: 20rem;
+    border: 1px solid #0062cc;
+    border-radius: 25px;
+}
+
+.login-button {
+    border-radius: 25px;
+    padding: 2px 25px 2px 25px;
+    background-color: #ff6a00;
+    color: white;
+    font-size: small;
+}
+
+.button-align {
+    text-align: center;
+}
+
+.place-holder-text input{
+    font-size: 0.8rem !important;
+}
+
+.bottom-section-background {
+    background-color: #394bcdd4;
+    height: 250px;
+}
+.bottom-title {
+    font-weight: 300;
+    color: white;
+}
+
+.bottom-title .title-weight {
+    font-weight: 700;
+}
+
+.bottom-section-title {
+    font-weight: 350;
+}
+
+.bottom-section-sub-title {
+    font-weight: 100;
+}
+
+.bottom-section-sub-content {
+    font-weight: 100;
+    color: gray;
+}
+
+.bottom-section-right-border {
+    border-right: 1px solid #80808040;
+}
