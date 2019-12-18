@@ -1,0 +1,42 @@
+.title-settings {
+    text-align: center;
+}
+
+.text-format {
+    font-weight: 600;
+}
+
+.order-titles {
+    border: 1px solid gray;
+    font-weight: 900;
+    text-align: center;
+}
+
+.order-values {
+    border: 1px solid gray;
+    border-top: none;
+    font-weight: 200;
+    text-align: center;
+}
+
+.order-header {
+    background-color: whitesmoke;
+    text-align: right;
+}
+
+.user-icon {
+    height: 2rem;
+}
+
+.add-order {
+    text-align: right;
+}
+
+.add-button {
+    border-radius: 2rem;
+    background-color: lightgray;
+}
+
+.logout {
+    font-size: 0.8rem;
+}

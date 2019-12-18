@@ -1,0 +1,173 @@
+<div class="container-fluid">
+  <div class="row order-header mb-2">
+    <div class="col">
+       <span class="mr-2">{{ orderUserName }}</span>
+       <a href="/" class="logout mr-2">Logout</a>
+       <img class="user-icon" src="../../assets/user_icon.svg" alt="user-icon">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="row mt-4">
+        <div class="col-10 title-settings">
+          <h3 class="text-format">ORDER LIST</h3>
+        </div>
+        <div class="col add-order">
+          <button class="button add-button" (click)="addOrder($event)"><i class="fa fa-plus"></i> Add Order</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col ml-3 mr-3">
+          <div class="row">
+            <div class="col order-titles" *ngFor="let title of orderTitle">
+              {{ title }}
+            </div>
+          </div>
+          <div class="row" *ngFor="let value of orderList">
+            <div class="col order-values" *ngFor="let property of properties">
+              <div *ngIf="property !== 'activity';else activityContent">
+                {{ value[property] }}
+              </div>
+              <ng-template #activityContent>
+                  <app-activity [data]="value"></app-activity>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal" tabindex="-1" role="dialog" id="edit-modal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Order</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col">
+                <div class="row mb-2">
+                  <div class="col">
+                    Order ID:
+                  </div>
+                  <div class="col">
+                    {{ modalData.order_id }}
+                  </div>
+                </div>
+                <div class="row mb-2">
+                  <div class="col">
+                    Purchased On:
+                  </div>
+                  <div class="col">
+                    {{ modalData.purchased_on }}
+                  </div>
+                </div>
+                <div class="row mb-2">
+                  <div class="col">
+                    Deliver To:
+                  </div>
+                  <div class="col">
+                    <input type="text" [(ngModel)]="modalData.deliver_to">
+                  </div>
+                </div>
+                <div class="row mb-2">
+                  <div class="col">
+                    Status:
+                  </div>
+                  <div class="col">
+                    <input type="text" [(ngModel)]="modalData.status">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="onEdit(modalData)">Submit</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal" tabindex="-1" role="dialog" id="add-modal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Add Order</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col">
+                <div class="row mb-2">
+                  <div class="col">
+                    Purchase On: 
+                  </div>
+                  <div class="col">
+                    <input type="text" [(ngModel)]="newPurchase" />
+                  </div>
+                </div>
+                <div class="row mb-2">
+                  <div class="col">
+                    Deliver To: 
+                  </div>
+                  <div class="col">
+                    <input type="text" [(ngModel)]="newDeliver" />
+                  </div>
+                </div>
+                <div class="row mb-2">
+                  <div class="col">
+                    Status: 
+                  </div>
+                  <div class="col">
+                    <input type="text" [(ngModel)]="newStatus" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="onAdd()">Add</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal" tabindex="-1" role="dialog" id="delete-modal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Delete Order</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col">
+                Are you sure you want to delete order ID: {{ deleteData.order_id }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="onDelete(deleteData)">Delete</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
